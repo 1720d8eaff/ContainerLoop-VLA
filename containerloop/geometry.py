@@ -29,6 +29,39 @@ def world_target(object_world, object_tool_target):
     return check_transform(object_world) @ check_transform(object_tool_target)
 
 
+def object_frame(origin, x_direction, z_hint):
+    """Construct T_world_object from origin and non-collinear world directions."""
+    origin, x, z = (np.asarray(v, dtype=float) for v in (origin, x_direction, z_hint))
+    if any(v.shape != (3,) or not np.isfinite(v).all() for v in (origin, x, z)):
+        raise ValueError('expected finite 3D vectors')
+    if np.linalg.norm(x) < 1e-8:
+        raise ValueError('zero x direction')
+    x = x / np.linalg.norm(x)
+    z = z - x * np.dot(x, z)
+    if np.linalg.norm(z) < 1e-8:
+        raise ValueError('directions are collinear')
+    z = z / np.linalg.norm(z)
+    y = np.cross(z, x)
+    T = np.eye(4)
+    T[:3, :3] = np.column_stack((x, y, z))
+    T[:3, 3] = origin
+    return T
+
+
+def grasp_consistency(reference_object_tool, observed_object_tool, position_tolerance, angle_tolerance):
+    """Check object-relative grasp drift against translation and angle bounds."""
+    if not np.isfinite([position_tolerance, angle_tolerance]).all() or min(position_tolerance, angle_tolerance) < 0:
+        raise ValueError('invalid tolerance')
+    error = pose_error(reference_object_tool, observed_object_tool)
+    return np.linalg.norm(error[:3]) <= position_tolerance and np.linalg.norm(error[3:]) <= angle_tolerance
+
+
+def feedback_correction(current, target, gain, translation_limit, rotation_limit):
+    if not np.isfinite(gain) or gain < 0:
+        raise ValueError('invalid gain')
+    return project_delta(gain * pose_error(current, target), translation_limit, rotation_limit)
+
+
 def rotation_vector(R):
     """Log map SO(3), including the near-pi case."""
     R = np.asarray(R, dtype=float)
