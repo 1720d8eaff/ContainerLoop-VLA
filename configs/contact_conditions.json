@@ -1,0 +1,482 @@
+[
+  {
+    "id": "c00",
+    "mass_kg": 0.08,
+    "friction": 0.15,
+    "offset_xy_m": [
+      0,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c01",
+    "mass_kg": 0.08,
+    "friction": 0.15,
+    "offset_xy_m": [
+      0.035,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c02",
+    "mass_kg": 0.08,
+    "friction": 0.15,
+    "offset_xy_m": [
+      -0.05,
+      0.035
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c03",
+    "mass_kg": 0.08,
+    "friction": 0.15,
+    "offset_xy_m": [
+      0,
+      -0.07
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c04",
+    "mass_kg": 0.08,
+    "friction": 0.5,
+    "offset_xy_m": [
+      0,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c05",
+    "mass_kg": 0.08,
+    "friction": 0.5,
+    "offset_xy_m": [
+      0.035,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c06",
+    "mass_kg": 0.08,
+    "friction": 0.5,
+    "offset_xy_m": [
+      -0.05,
+      0.035
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c07",
+    "mass_kg": 0.08,
+    "friction": 0.5,
+    "offset_xy_m": [
+      0,
+      -0.07
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c08",
+    "mass_kg": 0.08,
+    "friction": 1.0,
+    "offset_xy_m": [
+      0,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c09",
+    "mass_kg": 0.08,
+    "friction": 1.0,
+    "offset_xy_m": [
+      0.035,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c10",
+    "mass_kg": 0.08,
+    "friction": 1.0,
+    "offset_xy_m": [
+      -0.05,
+      0.035
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c11",
+    "mass_kg": 0.08,
+    "friction": 1.0,
+    "offset_xy_m": [
+      0,
+      -0.07
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c12",
+    "mass_kg": 0.2,
+    "friction": 0.15,
+    "offset_xy_m": [
+      0,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c13",
+    "mass_kg": 0.2,
+    "friction": 0.15,
+    "offset_xy_m": [
+      0.035,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c14",
+    "mass_kg": 0.2,
+    "friction": 0.15,
+    "offset_xy_m": [
+      -0.05,
+      0.035
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c15",
+    "mass_kg": 0.2,
+    "friction": 0.15,
+    "offset_xy_m": [
+      0,
+      -0.07
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c16",
+    "mass_kg": 0.2,
+    "friction": 0.5,
+    "offset_xy_m": [
+      0,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c17",
+    "mass_kg": 0.2,
+    "friction": 0.5,
+    "offset_xy_m": [
+      0.035,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c18",
+    "mass_kg": 0.2,
+    "friction": 0.5,
+    "offset_xy_m": [
+      -0.05,
+      0.035
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c19",
+    "mass_kg": 0.2,
+    "friction": 0.5,
+    "offset_xy_m": [
+      0,
+      -0.07
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c20",
+    "mass_kg": 0.2,
+    "friction": 1.0,
+    "offset_xy_m": [
+      0,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c21",
+    "mass_kg": 0.2,
+    "friction": 1.0,
+    "offset_xy_m": [
+      0.035,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c22",
+    "mass_kg": 0.2,
+    "friction": 1.0,
+    "offset_xy_m": [
+      -0.05,
+      0.035
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c23",
+    "mass_kg": 0.2,
+    "friction": 1.0,
+    "offset_xy_m": [
+      0,
+      -0.07
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c24",
+    "mass_kg": 0.35,
+    "friction": 0.15,
+    "offset_xy_m": [
+      0,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c25",
+    "mass_kg": 0.35,
+    "friction": 0.15,
+    "offset_xy_m": [
+      0.035,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c26",
+    "mass_kg": 0.35,
+    "friction": 0.15,
+    "offset_xy_m": [
+      -0.05,
+      0.035
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c27",
+    "mass_kg": 0.35,
+    "friction": 0.15,
+    "offset_xy_m": [
+      0,
+      -0.07
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c28",
+    "mass_kg": 0.35,
+    "friction": 0.5,
+    "offset_xy_m": [
+      0,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c29",
+    "mass_kg": 0.35,
+    "friction": 0.5,
+    "offset_xy_m": [
+      0.035,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c30",
+    "mass_kg": 0.35,
+    "friction": 0.5,
+    "offset_xy_m": [
+      -0.05,
+      0.035
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c31",
+    "mass_kg": 0.35,
+    "friction": 0.5,
+    "offset_xy_m": [
+      0,
+      -0.07
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c32",
+    "mass_kg": 0.35,
+    "friction": 1.0,
+    "offset_xy_m": [
+      0,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c33",
+    "mass_kg": 0.35,
+    "friction": 1.0,
+    "offset_xy_m": [
+      0.035,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c34",
+    "mass_kg": 0.35,
+    "friction": 1.0,
+    "offset_xy_m": [
+      -0.05,
+      0.035
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c35",
+    "mass_kg": 0.35,
+    "friction": 1.0,
+    "offset_xy_m": [
+      0,
+      -0.07
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c36",
+    "mass_kg": 0.5,
+    "friction": 0.15,
+    "offset_xy_m": [
+      0,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c37",
+    "mass_kg": 0.5,
+    "friction": 0.15,
+    "offset_xy_m": [
+      0.035,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c38",
+    "mass_kg": 0.5,
+    "friction": 0.15,
+    "offset_xy_m": [
+      -0.05,
+      0.035
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c39",
+    "mass_kg": 0.5,
+    "friction": 0.15,
+    "offset_xy_m": [
+      0,
+      -0.07
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c40",
+    "mass_kg": 0.5,
+    "friction": 0.5,
+    "offset_xy_m": [
+      0,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c41",
+    "mass_kg": 0.5,
+    "friction": 0.5,
+    "offset_xy_m": [
+      0.035,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c42",
+    "mass_kg": 0.5,
+    "friction": 0.5,
+    "offset_xy_m": [
+      -0.05,
+      0.035
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c43",
+    "mass_kg": 0.5,
+    "friction": 0.5,
+    "offset_xy_m": [
+      0,
+      -0.07
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c44",
+    "mass_kg": 0.5,
+    "friction": 1.0,
+    "offset_xy_m": [
+      0,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c45",
+    "mass_kg": 0.5,
+    "friction": 1.0,
+    "offset_xy_m": [
+      0.035,
+      0
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c46",
+    "mass_kg": 0.5,
+    "friction": 1.0,
+    "offset_xy_m": [
+      -0.05,
+      0.035
+    ],
+    "seed": 42
+  },
+  {
+    "id": "c47",
+    "mass_kg": 0.5,
+    "friction": 1.0,
+    "offset_xy_m": [
+      0,
+      -0.07
+    ],
+    "seed": 42
+  }
+]

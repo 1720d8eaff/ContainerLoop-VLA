@@ -4,9 +4,17 @@
 
 独立项目：[FailureVLA](https://github.com/1720d8eaff/FailureVLA) 研究失败恢复和异步执行；[unitree-g1d-grasp](https://github.com/1720d8eaff/unitree-g1d-grasp) 提供 AnyGrasp 抓取与硬件工程。
 
-## Public Release Scope
+## 运行入口
 
-This repository contains publicly shareable algorithmic components, interfaces, and evaluation utilities developed around object-centric robotic manipulation. The release is intended for research demonstration and reproducibility.
+默认 `requirements.txt` 安装 CPU 几何、相机与 MuJoCo 测试依赖。原有混合模型环境清单保留在 `requirements-model-reference.txt` 供核对，不作为默认安装入口。
+
+接触仿真：`python -m containerloop.contact_benchmark`，使用 `configs/contact_conditions.json` 的 48 个明确条件，运行五组控制开关，共 240 次。`artifacts/contact/` 保存本次新运行的逐步 CSV、结果 JSONL 和汇总。场景是带重力、摩擦和双指接触的笛卡尔夹爪搬运圆柱代理，不是 G1-D 或 GR00T 实验；结果不对应简历历史指标。
+
+权重推理：在安装 NVIDIA Isaac-GR00T 的独立环境中运行 `python -m containerloop.checkpoint --checkpoint PATH --embodiment TAG --input observations.npz --instruction "pick container" --output actions.npz`。输入使用 `video.<camera>` 的 uint8 `[1,T,H,W,3]` 以及 `state.<stream>` 的 `[1,T,D]` 数组，模态名称和历史长度必须匹配 checkpoint。官方 `Gr00tPolicy.get_action` 已返回物理量，不能再次反归一化。接口依据 [NVIDIA 官方文档](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md)；本次未加载实际 GR00T 权重。
+
+`decode_chunk` 对显式 7D 世界坐标系动作提供均值/标准差还原、SE(3) 步长限制及时间戳。测试使用可手算输入，不冒充缺失的模型输出记录。`GROOT_CKPT`、`GROOT_INPUT` 和 `GROOT_EMBODIMENT` 三个环境变量齐备时可运行实际 checkpoint 测试。
+
+`camera.py` 读取 RGB 与深度文件、按提供的 Brown-Conrady 内参做反投影，并报告时间间隙；时钟比例和偏置由标定结果提供。`configs/g1d_binding.json` 从现有 unitree 工程提取 URDF 哈希、关节名、DDS 索引、限位、话题和夹爪型号；500 Hz DDS 执行由该工程后端提供。本仓库的 `joint_pd` 是计算组件。
 
 ## 目录
 

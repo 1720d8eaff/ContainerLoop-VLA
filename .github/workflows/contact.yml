@@ -1,0 +1,17 @@
+name: CPU contact simulation
+on: [push, pull_request]
+jobs:
+  cpu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pytest -q tests
+      - run: python -m containerloop.contact_benchmark --limit 2 --output ci-contact
+      - uses: actions/upload-artifact@v4
+        with:
+          name: contact-records
+          path: ci-contact/

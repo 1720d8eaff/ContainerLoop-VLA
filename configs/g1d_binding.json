@@ -1,0 +1,154 @@
+{
+  "source": "existing_unitree_source",
+  "urdf_repository": "https://github.com/1720d8eaff/unitree-g1d-grasp",
+  "urdf_path": "laptop/ros_packages/g1_d_description/g1_d.urdf",
+  "urdf_sha256": "46527573a7140c7129c3587ba5591f269974deb893a0b095ebca500028b8bf40",
+  "backend_path": "onboard/trajectory_bridge/g1_d_trajectory_bridge/trajectory_backend.py",
+  "backend_period_s": 0.002,
+  "dds_command_topic": "rt/lowcmd",
+  "dds_state_topic": "rt/lowstate",
+  "gripper": "RH56H1",
+  "camera": "D435I; intrinsics queried from RealSense stream profile at runtime",
+  "joints": [
+    {
+      "name": "left_shoulder_pitch_joint",
+      "dds_index": 15,
+      "limit": {
+        "lower": "-3.0892",
+        "upper": "2.6704",
+        "effort": "25",
+        "velocity": "37"
+      }
+    },
+    {
+      "name": "left_shoulder_roll_joint",
+      "dds_index": 16,
+      "limit": {
+        "lower": "-1.5882",
+        "upper": "2.2515",
+        "effort": "25",
+        "velocity": "37"
+      }
+    },
+    {
+      "name": "left_shoulder_yaw_joint",
+      "dds_index": 17,
+      "limit": {
+        "lower": "-2.618",
+        "upper": "2.618",
+        "effort": "25",
+        "velocity": "37"
+      }
+    },
+    {
+      "name": "left_elbow_joint",
+      "dds_index": 18,
+      "limit": {
+        "lower": "-1.0472",
+        "upper": "2.0944",
+        "effort": "25",
+        "velocity": "37"
+      }
+    },
+    {
+      "name": "left_wrist_roll_joint",
+      "dds_index": 19,
+      "limit": {
+        "effort": "25",
+        "velocity": "37",
+        "lower": "-1.972222054",
+        "upper": "1.972222054"
+      }
+    },
+    {
+      "name": "left_wrist_pitch_joint",
+      "dds_index": 20,
+      "limit": {
+        "effort": "5",
+        "velocity": "22",
+        "lower": "-1.614429558",
+        "upper": "1.614429558"
+      }
+    },
+    {
+      "name": "left_wrist_yaw_joint",
+      "dds_index": 21,
+      "limit": {
+        "effort": "5",
+        "velocity": "22",
+        "lower": "-1.614429558",
+        "upper": "1.614429558"
+      }
+    },
+    {
+      "name": "right_shoulder_pitch_joint",
+      "dds_index": 22,
+      "limit": {
+        "lower": "-3.0892",
+        "upper": "2.6704",
+        "effort": "25",
+        "velocity": "37"
+      }
+    },
+    {
+      "name": "right_shoulder_roll_joint",
+      "dds_index": 23,
+      "limit": {
+        "lower": "-2.2515",
+        "upper": "1.5882",
+        "effort": "25",
+        "velocity": "37"
+      }
+    },
+    {
+      "name": "right_shoulder_yaw_joint",
+      "dds_index": 24,
+      "limit": {
+        "lower": "-2.618",
+        "upper": "2.618",
+        "effort": "25",
+        "velocity": "37"
+      }
+    },
+    {
+      "name": "right_elbow_joint",
+      "dds_index": 25,
+      "limit": {
+        "lower": "-1.0472",
+        "upper": "2.0944",
+        "effort": "25",
+        "velocity": "37"
+      }
+    },
+    {
+      "name": "right_wrist_roll_joint",
+      "dds_index": 26,
+      "limit": {
+        "effort": "25",
+        "velocity": "37",
+        "lower": "-1.972222054",
+        "upper": "1.972222054"
+      }
+    },
+    {
+      "name": "right_wrist_pitch_joint",
+      "dds_index": 27,
+      "limit": {
+        "effort": "5",
+        "velocity": "22",
+        "lower": "-1.614429558",
+        "upper": "1.614429558"
+      }
+    },
+    {
+      "name": "right_wrist_yaw_joint",
+      "dds_index": 28,
+      "limit": {
+        "effort": "5",
+        "velocity": "22",
+        "lower": "-1.614429558",
+        "upper": "1.614429558"
+      }
+    }
+  ]
+}

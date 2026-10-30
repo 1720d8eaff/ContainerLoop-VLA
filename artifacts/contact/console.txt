@@ -1,0 +1,1 @@
+{"direct": {"episodes": 48, "successes": 3}, "smoothing": {"episodes": 48, "successes": 8}, "geometry": {"episodes": 48, "successes": 3}, "feedback": {"episodes": 48, "successes": 12}, "full": {"episodes": 48, "successes": 32}}
