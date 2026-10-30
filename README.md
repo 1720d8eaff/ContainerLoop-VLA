@@ -36,7 +36,7 @@ python -m pytest -q tests
 
 示例使用合成状态，不连接机器人。所有位姿矩阵采用 `T_A_B` 约定：将 B 坐标系中的点转换到 A 坐标系；平移单位为米、旋转误差单位为弧度。
 
-`tests/fixtures/synthetic_states.csv` 是明确标记为 `synthetic_sdv` 的少量合成测试样本；pytest 使用它调用几何投影与 IK 接口，不是机器人实验记录。
+`tests/fixtures/synthetic_states.csv` 是明确标记为 `synthetic_sdv` 的少量合成测试样本；pytest 使用它调用几何投影与 IK 接口.
 
 ## 物体中心闭环
 
