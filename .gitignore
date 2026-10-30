@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+outputs/
+runs/
+*.pt
+*.pth
+*.bag
+*.mcap
+*.mp4
+*.h5
+*.hdf5
