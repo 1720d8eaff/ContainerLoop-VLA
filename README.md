@@ -8,7 +8,7 @@
 
 默认 `requirements.txt` 安装 CPU 几何、相机与 MuJoCo 测试依赖。原有混合模型环境清单保留在 `requirements-model-reference.txt` 供核对，不作为默认安装入口。
 
-接触仿真：`python -m containerloop.contact_benchmark`，使用 `configs/contact_conditions.json` 的 48 个明确条件，运行五组控制开关，共 240 次。`artifacts/contact/` 保存本次新运行的逐步 CSV、结果 JSONL 和汇总。场景是带重力、摩擦和双指接触的笛卡尔夹爪搬运圆柱代理，不是 G1-D 或 GR00T 实验；结果不对应简历历史指标。
+接触仿真：`python -m containerloop.contact_benchmark`，使用 `configs/contact_conditions.json` 的 48 个明确条件，运行五组控制开关，共 192 次。`artifacts/contact/` 保存本次新运行的逐步 CSV、结果 JSONL 和汇总。场景是带重力、摩擦和双指接触的笛卡尔夹爪搬运圆柱代理.
 
 权重推理：在安装 NVIDIA Isaac-GR00T 的独立环境中运行 `python -m containerloop.checkpoint --checkpoint PATH --embodiment TAG --input observations.npz --instruction "pick container" --output actions.npz`。输入使用 `video.<camera>` 的 uint8 `[1,T,H,W,3]` 以及 `state.<stream>` 的 `[1,T,D]` 数组，模态名称和历史长度必须匹配 checkpoint。官方 `Gr00tPolicy.get_action` 已返回物理量，不能再次反归一化。接口依据 [NVIDIA 官方文档](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md)；本次未加载实际 GR00T 权重。
 
