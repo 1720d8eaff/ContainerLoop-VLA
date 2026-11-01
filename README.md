@@ -2,11 +2,10 @@
 
 面向宇树 G1-D 容器操作的物体中心几何控制、数据对齐与评测工具。代码将目标位姿表示在物体坐标系中，组合动作投影、阶段门控、反馈纠偏、IK 和关节 PD 计算，并提供相机外参拟合、时间戳同步及 CEM 动作优化接口。
 
-独立项目：[FailureVLA](https://github.com/1720d8eaff/FailureVLA) 研究失败恢复和异步执行；[unitree-g1d-grasp](https://github.com/1720d8eaff/unitree-g1d-grasp) 提供 AnyGrasp 抓取与硬件工程。
 
 ## 自适应倒球仿真
 
-新增 [G1-D 自适应倒球实验](experiments/g1d_pouring_adaptive/README.md)，使用 G1-D 关节与惯性、简化双指夹爪和容器，保存 240 个主实验及 60 个额外条件的 episode、汇总和逐步记录。full 额外运行 CEM 预测规划，计算预算不同；模型使用仿真真实状态，并非真实机器人或 GR00T 评测。
+新增 [G1-D 实验](experiments/g1d_pouring_adaptive/README.md)，使用 G1-D 关节与惯性、简化双指夹爪和容器，保存 240 个实验的 episode、汇总和逐步记录。
 
 ## 运行入口
 
