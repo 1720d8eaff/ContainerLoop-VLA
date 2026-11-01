@@ -2,6 +2,15 @@
 
 画面展示机器人双臂与容器操作
 
+## 文件与评测入口
+
+- [样例压缩包](container_real_samples.zip)：公开 episode_0002、episode_0007、episode_0009 的抽样图像与 `trajectory.json`。
+- [数据清单](manifest.json)：列出各段原始帧数、保留帧数，并声明源数据有 300 段；公开压缩包为其中 3 段抽样。
+- [逐回合评测记录](../artifacts/contact/episodes.jsonl)：第 241–300 行为 `rr01` 至 `rr30` 的匹配条件记录，两种方法各 30 回合；日志标记 `vla_closed_loop` 成功 21 回合，`rule_control` 成功 17 回合。
+- [评测汇总](../artifacts/contact/summary.json)：`real_robot_evaluation` 包含成功率、匹配结果及抓取放置的成功判定。
+
+这些文件已位于 main 主干。示教样例没有逐条关联到上述评测回合；日志中的策略名称未关联到可核对的微调 checkpoint。示教、评测和倒球仿真的证据范围应分别按对应文件说明理解。
+
 ## 数据处理
 
 - 原始图像元信息标注 30 FPS；每隔 6 帧抽取一帧并保留末帧.

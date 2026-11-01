@@ -3,6 +3,13 @@
 面向宇树 G1-D 容器操作的物体中心几何控制、数据对齐与评测工具。代码将目标位姿表示在物体坐标系中，组合动作投影、阶段门控、反馈纠偏、IK 和关节 PD 计算，并提供相机外参拟合、时间戳同步及 CEM 动作优化接口。
 
 
+## 真实机器人材料
+
+- [真实机器人示教样例](real_robot_samples/README.md)：3 段公开抽样，包含 color_3 图像及左右臂、末端状态与动作；[样例压缩包](real_robot_samples/container_real_samples.zip)和[数据清单](real_robot_samples/manifest.json)均保存在 main 主干。
+- [逐回合评测记录](artifacts/contact/episodes.jsonl)：第 241–300 行为 30 组匹配初始条件的两种方法记录，日志标记 `vla_closed_loop` 为 21/30（70.0%），`rule_control` 为 17/30（56.7%）。[汇总](artifacts/contact/summary.json)中的 `real_robot_evaluation` 给出对应统计与成功判定。
+
+上述示教样例用于展示采集过程和数据结构，尚未逐条关联到评测回合；评测日志中的策略名称也未关联到可核对的微调 checkpoint。下面的倒球仿真是独立实验，任务与成功判定见各自说明。
+
 ## 自适应倒球仿真
 
 新增 [G1-D 实验](experiments/g1d_pouring_adaptive/README.md)，使用 G1-D 关节与惯性、简化双指夹爪和容器，保存 240 个实验的 episode、汇总和逐步记录。
