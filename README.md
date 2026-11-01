@@ -16,7 +16,7 @@
 
 [G1-D 双臂双夹爪适配目录](examples/g1d_dual_gripper/README.md)提供 16 维状态与动作配置（左臂 7、右臂 7、左右夹爪各 1）、[官方本体配置](examples/g1d_dual_gripper/g1d_config.py)、[数据字段映射](examples/g1d_dual_gripper/meta/modality.json)、推理数据适配及夹爪状态只读探测脚本。
 
-训练采用 `NEW_EMBODIMENT`，命令和数据要求见目录说明。这套配置对应双普通夹爪；已有 `configs/g1d_binding.json` 记录的是 RH56H1 工程绑定，两者应按实际末端配置选择。当前适配通过离线检查与三段示教字段核查，尚未运行模型训练或验收夹爪真机执行链。
+训练采用 `NEW_EMBODIMENT`，命令和数据要求见目录说明。这套配置对应双普通夹爪；已有 `configs/g1d_binding.json` 记录的是 RH56H1 工程绑定，两者应按实际末端配置选择。
 
 ## 自适应倒球仿真
 
@@ -28,7 +28,7 @@
 
 接触仿真：`python -m containerloop.contact_benchmark` 使用 `configs/contact_conditions.json` 的 48 个条件和五组控制开关。当前入口默认向新目录 `artifacts/contact_cem/` 输出；`artifacts/contact/` 保留旧版 JSONL 和汇总，不是当前代码的复跑记录。场景使用笛卡尔夹爪和圆柱代理。
 
-权重推理：在安装 NVIDIA Isaac-GR00T 的独立环境中运行 `python -m containerloop.checkpoint --checkpoint PATH --embodiment TAG --input observations.npz --instruction "pick container" --output actions.npz`。输入使用 `video.<camera>` 的 uint8 `[1,T,H,W,3]` 以及 `state.<stream>` 的 `[1,T,D]` 数组，模态名称和历史长度必须匹配 checkpoint。官方 `Gr00tPolicy.get_action` 已返回物理量，不能再次反归一化。接口依据 [NVIDIA 官方文档](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md)；本次未加载实际 GR00T 权重。
+权重推理：在安装 NVIDIA Isaac-GR00T 的独立环境中运行 `python -m containerloop.checkpoint --checkpoint PATH --embodiment TAG --input observations.npz --instruction "pick container" --output actions.npz`。输入使用 `video.<camera>` 的 uint8 `[1,T,H,W,3]` 以及 `state.<stream>` 的 `[1,T,D]` 数组，模态名称和历史长度必须匹配 checkpoint。官方 `Gr00tPolicy.get_action` 已返回物理量，不能再次反归一化。接口依据 [NVIDIA 官方文档](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md)；
 
 `decode_chunk` 对显式 7D 世界坐标系动作提供均值/标准差还原、SE(3) 步长限制及时间戳。测试使用可手算输入，不冒充缺失的模型输出记录。`GROOT_CKPT`、`GROOT_INPUT` 和 `GROOT_EMBODIMENT` 三个环境变量齐备时可运行实际 checkpoint 测试。
 
