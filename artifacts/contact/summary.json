@@ -8,7 +8,6 @@
     "final_z_gt_m": 0.025,
     "final_z_lt_m": 0.07
   },
-  "drift_m_definition": "Final object XY distance from [0.16, 0] in metres; distinct from grasp_drift_m.",
   "results": {
     "direct": {
       "episodes": 48,
