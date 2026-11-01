@@ -1,0 +1,10 @@
+{
+  "g1d_adapter.py": "635ae09f7fca5d56fdae01848fc10a1fded5d8319ab4d2ad264d87c4b9524425",
+  "g1d_config.py": "317c251a270708b8ae9011225ad4a3db7ffa29b7ba0ccc4de0dba77e3fa45058",
+  "inspect_trajectory.py": "b2001404aff1aff41ef3c9cbb64b504cfce2bc39dadef0e0b790e6d5d73cb49a",
+  "probe_gripper_state.py": "cefb75ee4ad9cb640338507e6e557e5be0882b4ab3892d2861dc0a5076cbcb6f",
+  "README.md": "db3aac63ee139f3081a69f74ab45ebb456cf9191feaa904f94abb5cdeb227ee9",
+  "robot_profile.json": "aba0f7e4ebd33e35e04724d5d57b0872eefdb3e381635e7d6743f171760611e7",
+  "validation_report.json": "6e3a93604bcf4d699f566467d33dbf0cd2e018badb48a72258058232a98bb77f",
+  "meta/modality.json": "fd3d6dd0e227b0ff97c1a0bbbe1ab0e800ea3a2862a8152f76b9bbf9d7f93218"
+}

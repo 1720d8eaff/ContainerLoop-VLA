@@ -1,0 +1,20 @@
+{
+  "state": {
+    "left_arm": {"start": 0, "end": 7},
+    "right_arm": {"start": 7, "end": 14},
+    "left_gripper": {"start": 14, "end": 15},
+    "right_gripper": {"start": 15, "end": 16}
+  },
+  "action": {
+    "left_arm": {"start": 0, "end": 7},
+    "right_arm": {"start": 7, "end": 14},
+    "left_gripper": {"start": 14, "end": 15},
+    "right_gripper": {"start": 15, "end": 16}
+  },
+  "video": {
+    "color_3": {"original_key": "observation.images.color_3"}
+  },
+  "annotation": {
+    "human.task_description": {"original_key": "task_index"}
+  }
+}

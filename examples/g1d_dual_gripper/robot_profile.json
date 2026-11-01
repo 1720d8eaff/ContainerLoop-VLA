@@ -1,0 +1,235 @@
+{
+  "robot": "Unitree G1-D upper body",
+  "end_effectors": "two ordinary single-channel grippers",
+  "configuration_confirmed_by_user": true,
+  "gr00t_embodiment_tag": "NEW_EMBODIMENT",
+  "state_dim": 16,
+  "action_dim": 16,
+  "action_representation": "absolute_native_targets",
+  "waist_legs_lift_included": false,
+  "arms": {
+    "left": [
+      {
+        "name": "left_shoulder_pitch_joint",
+        "motor_id": 15,
+        "position_limits_rad": [
+          -3.0892,
+          2.6704
+        ],
+        "urdf_velocity_limit_rad_s": 37.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      },
+      {
+        "name": "left_shoulder_roll_joint",
+        "motor_id": 16,
+        "position_limits_rad": [
+          -1.5882,
+          2.2515
+        ],
+        "urdf_velocity_limit_rad_s": 37.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      },
+      {
+        "name": "left_shoulder_yaw_joint",
+        "motor_id": 17,
+        "position_limits_rad": [
+          -2.618,
+          2.618
+        ],
+        "urdf_velocity_limit_rad_s": 37.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      },
+      {
+        "name": "left_elbow_joint",
+        "motor_id": 18,
+        "position_limits_rad": [
+          -1.0472,
+          2.0944
+        ],
+        "urdf_velocity_limit_rad_s": 37.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      },
+      {
+        "name": "left_wrist_roll_joint",
+        "motor_id": 19,
+        "position_limits_rad": [
+          -1.972222054,
+          1.972222054
+        ],
+        "urdf_velocity_limit_rad_s": 37.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      },
+      {
+        "name": "left_wrist_pitch_joint",
+        "motor_id": 20,
+        "position_limits_rad": [
+          -1.614429558,
+          1.614429558
+        ],
+        "urdf_velocity_limit_rad_s": 22.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      },
+      {
+        "name": "left_wrist_yaw_joint",
+        "motor_id": 21,
+        "position_limits_rad": [
+          -1.614429558,
+          1.614429558
+        ],
+        "urdf_velocity_limit_rad_s": 22.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      }
+    ],
+    "right": [
+      {
+        "name": "right_shoulder_pitch_joint",
+        "motor_id": 22,
+        "position_limits_rad": [
+          -3.0892,
+          2.6704
+        ],
+        "urdf_velocity_limit_rad_s": 37.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      },
+      {
+        "name": "right_shoulder_roll_joint",
+        "motor_id": 23,
+        "position_limits_rad": [
+          -2.2515,
+          1.5882
+        ],
+        "urdf_velocity_limit_rad_s": 37.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      },
+      {
+        "name": "right_shoulder_yaw_joint",
+        "motor_id": 24,
+        "position_limits_rad": [
+          -2.618,
+          2.618
+        ],
+        "urdf_velocity_limit_rad_s": 37.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      },
+      {
+        "name": "right_elbow_joint",
+        "motor_id": 25,
+        "position_limits_rad": [
+          -1.0472,
+          2.0944
+        ],
+        "urdf_velocity_limit_rad_s": 37.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      },
+      {
+        "name": "right_wrist_roll_joint",
+        "motor_id": 26,
+        "position_limits_rad": [
+          -1.972222054,
+          1.972222054
+        ],
+        "urdf_velocity_limit_rad_s": 37.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      },
+      {
+        "name": "right_wrist_pitch_joint",
+        "motor_id": 27,
+        "position_limits_rad": [
+          -1.614429558,
+          1.614429558
+        ],
+        "urdf_velocity_limit_rad_s": 22.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      },
+      {
+        "name": "right_wrist_yaw_joint",
+        "motor_id": 28,
+        "position_limits_rad": [
+          -1.614429558,
+          1.614429558
+        ],
+        "urdf_velocity_limit_rad_s": 22.0,
+        "limits_source": "existing_project_urdf_not_new_hardware_acceptance"
+      }
+    ]
+  },
+  "grippers": {
+    "left": {
+      "recording_key": "left_ee",
+      "dimensions": 1
+    },
+    "right": {
+      "recording_key": "right_ee",
+      "dimensions": 1
+    },
+    "recording_unit": "native_qpos_not_independently_calibrated",
+    "hardware_model": null,
+    "hardware_model_candidate": "Unitree Dex1-1",
+    "candidate_basis": "local Dex1 research package and sample images; not hardware identity proof",
+    "open_close_endpoints_verified": false,
+    "width_conversion_verified": false,
+    "confirmed_runtime_binding": null,
+    "external_candidate": {
+      "source": "unitreerobotics/xr_teleoperate/teleop/robot_control/robot_hand_unitree.py",
+      "left_state_topic": "rt/dex1/left/state",
+      "right_state_topic": "rt/dex1/right/state",
+      "state_message_type": "unitree_go.msg.dds_.MotorStates_",
+      "q_field": "states[0].q",
+      "left_command_topic": "rt/dex1/left/cmd",
+      "right_command_topic": "rt/dex1/right/cmd",
+      "command_message_type": "unitree_go.msg.dds_.MotorCmds_",
+      "target_field": "cmds[0].q",
+      "validated_on_this_g1d": false
+    },
+    "internal_candidate": {
+      "lowstate_slots": {
+        "left": 31,
+        "right": 33
+      },
+      "source_platform": "official G1-29 dex1_internal reference, not G1-D verified",
+      "validated_on_this_g1d": false
+    }
+  },
+  "camera": {
+    "model_config_key": "color_3",
+    "dataset_key": "observation.images.color_3",
+    "input_color": "RGB",
+    "input_dtype": "uint8",
+    "views": 1,
+    "demonstration_camera_model": null,
+    "historical_manual_device": "Intel RealSense D435i; association to color_3 unverified"
+  },
+  "timing": {
+    "action_horizon_steps": 16,
+    "training_fps": null,
+    "public_sample_source_fps_nominal": 30,
+    "public_sample_stride": 6,
+    "public_sample_timestamps_measured": false,
+    "backend_design_hz": 500,
+    "model_inference_hz_measured": null
+  },
+  "pending": [
+    "Match recording joint order with source exporter",
+    "Identify real gripper model and active DDS/control binding",
+    "Confirm native q scale, offsets, endpoints, direction and limits",
+    "Use full synchronized dataset and matching camera preprocessing",
+    "Validate robot controller limits, collision checks and execution timing"
+  ],
+  "sources": [
+    {
+      "kind": "manual",
+      "filename": "G1-D_AI交接手册.md",
+      "sha256": "2535a7cf35a6d5b2b4c6d209aec57bc84e204fca606fa66a5e61e1f006daa6c9"
+    },
+    {
+      "kind": "official_local_g1d_sdk",
+      "relative_path": "example/g1/g1d/g1d_arm_example.cpp",
+      "sha256": "1046e9f5614adf1e88d0789afc59d3b1cd1d4cc0c639675233b9a362e37aba93"
+    },
+    {
+      "kind": "local_project_urdf",
+      "relative_path": "laptop/ros_packages/g1_d_description/g1_d.urdf",
+      "sha256": "46527573a7140c7129c3587ba5591f269974deb893a0b095ebca500028b8bf40"
+    }
+  ]
+}
