@@ -12,6 +12,9 @@
 
 ## GR00T N1.7 双夹爪微调适配
 
+- [用户提供的 GR00T LoRA 训练日志](artifacts/gr00t_training/user_provided/README.md)：文件记录 20,000 步训练及验证指标，原始日志与来源说明一并归档；对应 checkpoint 和真机部署记录未随本次上传提供。
+
+
 [G1-D 双臂双夹爪适配目录](examples/g1d_dual_gripper/README.md)提供 16 维状态与动作配置（左臂 7、右臂 7、左右夹爪各 1）、[官方本体配置](examples/g1d_dual_gripper/g1d_config.py)、[数据字段映射](examples/g1d_dual_gripper/meta/modality.json)、推理数据适配及夹爪状态只读探测脚本。
 
 训练采用 `NEW_EMBODIMENT`，命令和数据要求见目录说明。这套配置对应双普通夹爪；已有 `configs/g1d_binding.json` 记录的是 RH56H1 工程绑定，两者应按实际末端配置选择。当前适配通过离线检查与三段示教字段核查，尚未运行模型训练或验收夹爪真机执行链。
