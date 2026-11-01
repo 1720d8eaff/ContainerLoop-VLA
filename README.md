@@ -16,7 +16,7 @@
 
 [G1-D 双臂双夹爪适配目录](examples/g1d_dual_gripper/README.md)提供 16 维状态与动作配置（左臂 7、右臂 7、左右夹爪各 1）、[官方本体配置](examples/g1d_dual_gripper/g1d_config.py)、[数据字段映射](examples/g1d_dual_gripper/meta/modality.json)、推理数据适配及夹爪状态只读探测脚本。
 
-训练采用 `NEW_EMBODIMENT`，命令和数据要求见目录说明。这套配置对应双普通夹爪；已有 `configs/g1d_binding.json` 记录的是 RH56H1 工程绑定，两者应按实际末端配置选择。
+训练采用 `NEW_EMBODIMENT`，命令和数据要求见目录说明。这套配置对应双普通夹爪；已有 `configs/g1d_binding.json` 记录的是 RH56H1 工程绑定，是因为做另外一个项目用的灵巧手，两者应按实际末端配置选择。
 
 ## 自适应倒球仿真
 
