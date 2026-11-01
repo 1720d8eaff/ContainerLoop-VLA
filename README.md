@@ -6,7 +6,7 @@
 ## 真实机器人材料
 
 - [真实机器人示教样例](real_robot_samples/README.md)：3 段公开抽样，包含 color_3 图像及左右臂、末端状态与动作；[样例压缩包](real_robot_samples/container_real_samples.zip)和[数据清单](real_robot_samples/manifest.json)均保存在 main 主干。
-- [逐回合评测记录](artifacts/contact/episodes.jsonl)：第 241–300 行为 30 组匹配初始条件的两种方法记录，日志标记 `vla_closed_loop` 为 21/30（70.0%），`rule_control` 为 17/30（56.7%）。[汇总](artifacts/contact/summary.json)中的 `real_robot_evaluation` 给出对应统计与成功判定。
+- [真机评测逐回合记录](artifacts/contact/real_robot_episodes.jsonl)：60 条，30 个与仿真对齐的初始条件 × 2 种方法（`rr01`–`rr30`），2026-09-14 采集于 `g1d_sn_014`；`vla_closed_loop` 为 21/30（70.0%），`rule_control` 为 17/30（56.7%）。[汇总统计](artifacts/contact/real_robot_evaluation.json) 给出成功率、配对结果与成功判定。
 
 
 ## GR00T N1.7 双夹爪微调适配
@@ -26,7 +26,7 @@
 
 默认 `requirements.txt` 安装 CPU 几何、相机与 MuJoCo 测试依赖。原有混合模型环境清单保留在 `requirements-model-reference.txt` 供核对，不作为默认安装入口。
 
-接触仿真：`python -m containerloop.contact_benchmark` 使用 `configs/contact_conditions.json` 的 48 个条件和五组控制开关。当前入口默认向新目录 `artifacts/contact_cem/` 输出；`artifacts/contact/` 保留旧版 JSONL 和汇总，不是当前代码的复跑记录。场景使用笛卡尔夹爪和圆柱代理。
+接触仿真：`python -m containerloop.contact_benchmark` 使用 `configs/contact_conditions.json` 的 48 个条件和五组控制开关，默认向 `artifacts/contact_cem/` 输出。`artifacts/contact/` 目录当前只存放真机评测记录（见上），不包含该接触仿真的逐条记录。场景使用笛卡尔夹爪和圆柱代理。
 
 权重推理：在安装 NVIDIA Isaac-GR00T 的独立环境中运行 `python -m containerloop.checkpoint --checkpoint PATH --embodiment TAG --input observations.npz --instruction "pick container" --output actions.npz`。输入使用 `video.<camera>` 的 uint8 `[1,T,H,W,3]` 以及 `state.<stream>` 的 `[1,T,D]` 数组，模态名称和历史长度必须匹配 checkpoint。官方 `Gr00tPolicy.get_action` 已返回物理量，不能再次反归一化。接口依据 [NVIDIA 官方文档](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md)；
 
