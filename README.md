@@ -95,7 +95,7 @@ write_jsonl(rows, 'runs/example/episode.jsonl')
 
 `containerloop.policy.GrootAdapter` 接受 GR00T 的 `get_action` policy 实例及显式的观测、动作转换回调，输出带时间戳的 SE(3) 位姿和夹爪命令；模型加载、模态、动作坐标系和单位由用户配置，参考 [NVIDIA Policy API](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md)。`MockPolicy` 仅用于接口测试。
 
-`python -m containerloop.ablation --evaluator my_experiment:run --conditions conditions.json --output runs/ablation.jsonl` 使用同一批条件调用外部评测函数，传入 direct、smoothing、geometry、feedback、full 五组开关。外部评测函数负责实际仿真或实验并返回 success、grasp_drift_m、constraint_violations、execution_time_s、failure_reason；`evaluation.summarize_jsonl` 汇总运行记录。接口验证与实验日志的证据范围见 [简历证据索引](docs/RESUME_EVIDENCE.md)。
+`python -m containerloop.ablation --evaluator my_experiment:run --conditions conditions.json --output runs/ablation.jsonl` 使用同一批条件调用外部评测函数，传入 direct、smoothing、geometry、feedback、full 五组开关。外部评测函数负责实际仿真或实验并返回 success、grasp_drift_m、constraint_violations、execution_time_s、failure_reason；`evaluation.summarize_jsonl` 汇总运行记录。
 
 评测 CSV 字段为 `condition_id,method,success,drift_m`，成功标记为 `0` 或 `1`。每种方法在同一初始条件下使用相同 `condition_id`，每组只能有一条记录：
 
