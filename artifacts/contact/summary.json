@@ -4,7 +4,7 @@
   "results": {
     "direct": {
       "episodes": 48,
-      "successes": 3
+      "successes": 31
     },
     "smoothing": {
       "episodes": 48,
@@ -20,7 +20,7 @@
     },
     "full": {
       "episodes": 48,
-      "successes": 32
+      "successes": 36
     }
   }
 }
