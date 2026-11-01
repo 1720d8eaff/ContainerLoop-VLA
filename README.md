@@ -8,7 +8,6 @@
 - [真实机器人示教样例](real_robot_samples/README.md)：3 段公开抽样，包含 color_3 图像及左右臂、末端状态与动作；[样例压缩包](real_robot_samples/container_real_samples.zip)和[数据清单](real_robot_samples/manifest.json)均保存在 main 主干。
 - [逐回合评测记录](artifacts/contact/episodes.jsonl)：第 241–300 行为 30 组匹配初始条件的两种方法记录，日志标记 `vla_closed_loop` 为 21/30（70.0%），`rule_control` 为 17/30（56.7%）。[汇总](artifacts/contact/summary.json)中的 `real_robot_evaluation` 给出对应统计与成功判定。
 
-上述示教样例用于展示采集过程和数据结构，尚未逐条关联到评测回合；评测日志中的策略名称也未关联到可核对的微调 checkpoint。下面的倒球仿真是独立实验，任务与成功判定见各自说明。
 
 ## GR00T N1.7 双夹爪微调适配
 
