@@ -1,0 +1,51 @@
+{
+  "source": "new_mujoco_simulation",
+  "task": "G1-D simplified gripper pours ball from beaker into conical flask",
+  "model_limitations": "G1-D URDF kinematics and inertias; missing robot mesh and robot link collision geometry; approximate gripper and vessels; fixed-base with gravity compensation; not hardware or VLA",
+  "success_definition": "ball center crosses downward through flask mouth with radius clearance, finishes within inner cone at z 9–111 mm with velocity below 0.08 m/s",
+  "episodes": 60,
+  "conditions": 12,
+  "model_sha256": "8117ec23c80855684037c4ae248d0b838c1945dc94f7e5aa2c50e583bce175e3",
+  "script_sha256": "98b2507379684c633cf0782661390564cf6711917291413a3e3c79b48a05d503",
+  "mujoco_version": "3.17.0",
+  "numpy_version": "1.26.4",
+  "elapsed_wall_s": 76.28076970000984,
+  "methods": "smoothing=joint target filtering; geometry=larger object disturbance penalty during CEM; feedback=uses observed beaker position at grasp planning; all use same IK and grasp CEM; full uses CEM to optimize the pour target with complete future physics rollouts from the post-lift simulator state",
+  "results": {
+    "direct": {
+      "episodes": 12,
+      "successes": 0,
+      "success_rate": 0.0,
+      "grasp_measured_episodes": 12,
+      "mean_grasp_drift_m_measured": 0.021773119244254253
+    },
+    "smoothing": {
+      "episodes": 12,
+      "successes": 1,
+      "success_rate": 0.08333333333333333,
+      "grasp_measured_episodes": 12,
+      "mean_grasp_drift_m_measured": 0.021653057995279324
+    },
+    "geometry": {
+      "episodes": 12,
+      "successes": 0,
+      "success_rate": 0.0,
+      "grasp_measured_episodes": 12,
+      "mean_grasp_drift_m_measured": 0.021914691724310098
+    },
+    "feedback": {
+      "episodes": 12,
+      "successes": 0,
+      "success_rate": 0.0,
+      "grasp_measured_episodes": 12,
+      "mean_grasp_drift_m_measured": 0.022045566553325128
+    },
+    "full": {
+      "episodes": 12,
+      "successes": 9,
+      "success_rate": 0.75,
+      "grasp_measured_episodes": 12,
+      "mean_grasp_drift_m_measured": 0.02196241362735256
+    }
+  }
+}

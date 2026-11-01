@@ -1,0 +1,259 @@
+<mujoco model="g1d_pour_prototype">
+  <compiler angle="radian" />
+  <worldbody>
+    <body name="AGV_link" gravcomp="1">
+      <inertial pos="0 0 0" quat="0.498247 0.503127 -0.497242 0.501362" mass="37" diaginertia="0.158051 0.0911694 0.0810683" />
+      <body name="Left_Wheel_Link" pos="0.00022503 0.2031 -0.0265" gravcomp="1">
+        <inertial pos="-3e-06 -0.000309 -2e-06" quat="0.37294 0.600751 0.600769 0.372948" mass="1.5" diaginertia="0.00276373 0.00154174 0.00154164" />
+        <joint name="Left_Wheel_Joint" range="-3.1416 3.1416" axis="0 -1 0" damping="2" />
+      </body>
+      <body name="RIght_Wheel_Link" pos="0.00022503 -0.2031 -0.0265" gravcomp="1">
+        <inertial pos="3e-06 0.000309 -2e-06" quat="0.516023 0.483432 0.483443 0.516039" mass="1.5" diaginertia="0.00276373 0.00154172 0.00154166" />
+        <joint name="Right_Wheel_Joint" range="-3.1416 3.1416" axis="0 1 0" damping="2" />
+      </body>
+      <body name="LZ_ot_Link" pos="-0.00016264 0 0.5275" gravcomp="1">
+        <inertial pos="0.000375 2.5e-05 -0.000249652" quat="0.518016 0.000134578 -8.15378e-05 0.855371" mass="3.3" diaginertia="0.0718218 0.0718194 0.0149375" />
+        <body name="LZ_mt_Link" pos="0.00038767 0 0.01" gravcomp="1">
+          <inertial pos="0.000494 -6.2e-05 0.216016" quat="0.707107 0 0 0.707107" mass="3.3" diaginertia="0.0573529 0.0573527 0.0128473" />
+          <joint name="LZ_mt_Joint" type="slide" range="0 0.21" damping="2" />
+          <body name="LZ_it_Link" pos="0.0013627 0.00020167 0.018" gravcomp="1">
+            <inertial pos="-0.001566 -0.000192 -0.199159" quat="0.999597 -2.25841e-05 -0.00121505 -0.0283677" mass="3.4" diaginertia="0.0682101 0.0681828 0.0105839" />
+            <joint name="LZ_it_Joint" type="slide" range="0 0.21" damping="2" />
+            <body name="Pitching_Link" pos="-0.0013627 -0.00020167 0.008" gravcomp="1">
+              <inertial pos="0.040544 -0.00377 0.051728" quat="-0.273035 0.384228 -0.162198 0.866898" mass="1.889" diaginertia="0.00488785 0.00483977 0.00253715" />
+              <body name="Yaw_Link" pos="0.0555 0.0002165 0.066" gravcomp="1">
+                <inertial pos="7.4e-05 -0.00062 0.071221" quat="0.999749 -0.0223801 0.000227644 -0.000701156" mass="1.144" diaginertia="0.00260247 0.0022047 0.00122659" />
+                <joint name="Yaw_Joint" range="-0.04363 2.3562" axis="0 1 0" damping="2" />
+                <body name="torso_link" pos="-0.0023536 -4.8782e-05 0.104009" gravcomp="1">
+                  <inertial pos="0.002601 0.000257 0.153719" quat="0.999683 0.00171655 0.0248299 -0.00373147" mass="8.562" diaginertia="0.065762 0.0535348 0.0307215" />
+                  <joint name="torso_Joint" range="-2.7053 2.7053" damping="2" />
+                  <body name="logo_link" pos="0.0039635 0 -0.054" gravcomp="1">
+                    <inertial pos="0 0 0" mass="0.001" diaginertia="1e-07 1e-07 1e-07" />
+                  </body>
+                  <body name="head_link" pos="0.0039635 0 -0.054" gravcomp="1">
+                    <inertial pos="0.005267 0.000299 0.449869" quat="0.698214 0.0103452 0.0112082 0.715727" mass="1.036" diaginertia="0.00418528 0.00408711 0.00180579" />
+                  </body>
+                  <body name="left_shoulder_pitch_link" pos="0.0039563 0.10022 0.24778" quat="0.990264 0.139201 1.38722e-05 -9.86868e-05" gravcomp="1">
+                    <inertial pos="0 0.035892 -0.011628" quat="0.654152 0.0130458 -0.326267 0.68225" mass="0.718" diaginertia="0.000465864 0.000432842 0.000406394" />
+                    <joint name="left_shoulder_pitch_joint" range="-3.0892 2.6704" axis="0 1 0" damping="2" />
+                    <body name="left_shoulder_roll_link" pos="0 0.038 -0.013831" quat="0.990268 -0.139172 0 0" gravcomp="1">
+                      <inertial pos="-0.000227 0.00727 -0.063243" quat="0.701256 -0.0196219 -0.00710356 0.712604" mass="0.643" diaginertia="0.000691311 0.000618011 0.000388977" />
+                      <joint name="left_shoulder_roll_joint" range="-1.5882 2.2515" axis="1 0 0" damping="2" />
+                      <body name="left_shoulder_yaw_link" pos="0 0.00624 -0.1032" gravcomp="1">
+                        <inertial pos="0.010773 -0.002949 -0.072009" quat="0.716879 -0.0964829 -0.0679942 0.687134" mass="0.734" diaginertia="0.00106187 0.00103217 0.000400661" />
+                        <joint name="left_shoulder_yaw_joint" range="-2.618 2.618" damping="2" />
+                        <body name="left_elbow_link" pos="0.015783 0 -0.080518" gravcomp="1">
+                          <inertial pos="0.064956 0.004454 -0.010062" quat="0.541765 0.636132 0.388821 0.388129" mass="0.6" diaginertia="0.000443035 0.000421612 0.000259353" />
+                          <joint name="left_elbow_joint" range="-1.0472 2.0944" axis="0 1 0" damping="2" />
+                          <body name="left_wrist_roll_link" pos="0.1 0.00188791 -0.01" gravcomp="1">
+                            <inertial pos="0.0171394 0.000537591 4.8864e-07" quat="0.575338 0.411667 -0.574906 0.411094" mass="0.085445" diaginertia="5.48211e-05 4.96646e-05 3.57798e-05" />
+                            <joint name="left_wrist_roll_joint" range="-1.97222 1.97222" axis="1 0 0" damping="2" />
+                            <body name="left_wrist_pitch_link" pos="0.038 0 0" gravcomp="1">
+                              <inertial pos="0.0229999 -0.00111685 -0.00111658" quat="0.249997 0.661363 0.293035 0.643608" mass="0.48405" diaginertia="0.000430353 0.000429873 0.000164648" />
+                              <joint name="left_wrist_pitch_joint" range="-1.61443 1.61443" axis="0 1 0" damping="2" />
+                              <body name="left_wrist_yaw_link" pos="0.046 0 0" gravcomp="1">
+                                <inertial pos="0.0220038 0.000494851 0.000538611" quat="0.682761 -0.121337 -0.135119 0.707713" mass="0.0845765" diaginertia="5.97564e-05 5.09807e-05 3.75684e-05" />
+                                <joint name="left_wrist_yaw_joint" range="-1.61443 1.61443" damping="2" />
+                                <geom size="0.04 0.025 0.025" pos="0.03 0 0" type="box" contype="0" conaffinity="0" group="1" density="0" />
+                                <geom size="0.04 0.025 0.025" pos="0.03 0 0" type="box" />
+                                <body name="left_hand_palm_link" pos="0.0415 0.003 0" gravcomp="1">
+                                  <inertial pos="0.0621463 -0.000508697 -0.000581711" quat="0.490075 0.479375 0.51008 0.519466" mass="0.372839" diaginertia="0.000540479 0.000396282 0.000274343" />
+                                  <body name="left_hand_thumb_0_link" pos="0.0255 0 0" gravcomp="1">
+                                    <inertial pos="-0.000884246 -0.00863407 0.000944293" quat="0.462991 0.643965 -0.460173 0.398986" mass="0.0862366" diaginertia="1.6546e-05 1.60058e-05 1.43741e-05" />
+                                    <joint name="left_hand_thumb_0_joint" range="-1.0472 1.0472" axis="0 1 0" damping="2" />
+                                    <body name="left_hand_thumb_1_link" pos="-0.0025 -0.0193 0" gravcomp="1">
+                                      <inertial pos="-0.000827888 -0.0354744 -0.0003809" quat="0.685598 0.705471 -0.15207 0.0956069" mass="0.0588507" diaginertia="1.28514e-05 1.22902e-05 5.9666e-06" />
+                                      <joint name="left_hand_thumb_1_joint" range="-0.724312 1.0472" damping="2" />
+                                      <body name="left_hand_thumb_2_link" pos="0 -0.0458 0" gravcomp="1">
+                                        <inertial pos="-0.00171735 -0.0262819 0.000107789" quat="0.703174 0.710977 -0.000175642 -0.00766553" mass="0.0203063" diaginertia="4.61314e-06 3.86645e-06 1.53495e-06" />
+                                        <joint name="left_hand_thumb_2_joint" range="0 1.74533" damping="2" />
+                                      </body>
+                                    </body>
+                                  </body>
+                                  <body name="left_hand_middle_0_link" pos="0.0777 0.0016 -0.0285" gravcomp="1">
+                                    <inertial pos="0.0354744 0.000827888 0.0003809" quat="0.391313 0.552395 0.417187 0.606373" mass="0.0588507" diaginertia="1.28514e-05 1.22902e-05 5.9666e-06" />
+                                    <joint name="left_hand_middle_0_joint" range="-1.5708 0" damping="2" />
+                                    <body name="left_hand_middle_1_link" pos="0.0458 0 0" gravcomp="1">
+                                      <inertial pos="0.0262819 0.00171735 -0.000107789" quat="0.502612 0.491799 0.502639 0.502861" mass="0.0203063" diaginertia="4.61314e-06 3.86645e-06 1.53495e-06" />
+                                      <joint name="left_hand_middle_1_joint" range="-1.74533 0" damping="2" />
+                                    </body>
+                                  </body>
+                                  <body name="left_hand_index_0_link" pos="0.0777 0.0016 0.0285" gravcomp="1">
+                                    <inertial pos="0.0354744 0.000827888 0.0003809" quat="0.391313 0.552395 0.417187 0.606373" mass="0.0588507" diaginertia="1.28514e-05 1.22902e-05 5.9666e-06" />
+                                    <joint name="left_hand_index_0_joint" range="-1.5708 0" damping="2" />
+                                    <body name="left_hand_index_1_link" pos="0.0458 0 0" gravcomp="1">
+                                      <inertial pos="0.0262819 0.00171735 -0.000107789" quat="0.502612 0.491799 0.502639 0.502861" mass="0.0203063" diaginertia="4.61314e-06 3.86645e-06 1.53495e-06" />
+                                      <joint name="left_hand_index_1_joint" range="-1.74533 0" damping="2" />
+                                    </body>
+                                  </body>
+                                </body>
+                                <body name="simple_gripper" pos=".08 0 0">
+                                  <geom name="gripper_base" type="box" size=".025 .05 .012" mass=".1" rgba=".2 .2 .25 1" />
+                                  <body name="left_finger" pos="0 0.052 -.035">
+                                    <joint name="left_finger_slide" type="slide" axis="0 -1 0" range="0 .032" damping="2" />
+                                    <geom name="left_pad" type="box" size=".022 .006 .035" mass=".025" friction="2 .02 .001" rgba=".15 .15 .18 1" />
+                                  </body>
+                                  <body name="right_finger" pos="0 -0.052 -.035">
+                                    <joint name="right_finger_slide" type="slide" axis="0 1 0" range="0 .032" damping="2" />
+                                    <geom name="right_pad" type="box" size=".022 .006 .035" mass=".025" friction="2 .02 .001" rgba=".15 .15 .18 1" />
+                                  </body>
+                                  <site name="grip_site" pos="0 0 -.035" size=".004" />
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                  <body name="right_shoulder_pitch_link" pos="0.0039563 -0.10021 0.24778" quat="0.990264 -0.139201 1.38722e-05 9.86868e-05" gravcomp="1">
+                    <inertial pos="0 -0.035892 -0.011628" quat="0.68225 -0.326267 0.0130458 0.654152" mass="0.718" diaginertia="0.000465864 0.000432842 0.000406394" />
+                    <joint name="right_shoulder_pitch_joint" range="-3.0892 2.6704" axis="0 1 0" damping="2" />
+                    <body name="right_shoulder_roll_link" pos="0 -0.038 -0.013831" quat="0.990268 0.139172 0 0" gravcomp="1">
+                      <inertial pos="-0.000227 -0.00727 -0.063243" quat="0.712604 -0.00710356 -0.0196219 0.701256" mass="0.643" diaginertia="0.000691311 0.000618011 0.000388977" />
+                      <joint name="right_shoulder_roll_joint" range="-2.2515 1.5882" axis="1 0 0" damping="2" />
+                      <body name="right_shoulder_yaw_link" pos="0 -0.00624 -0.1032" gravcomp="1">
+                        <inertial pos="0.010773 0.002949 -0.072009" quat="0.687134 -0.0679942 -0.0964829 0.716879" mass="0.734" diaginertia="0.00106187 0.00103217 0.000400661" />
+                        <joint name="right_shoulder_yaw_joint" range="-2.618 2.618" damping="2" />
+                        <body name="right_elbow_link" pos="0.015783 0 -0.080518" gravcomp="1">
+                          <inertial pos="0.064956 -0.004454 -0.010062" quat="0.388129 0.388821 0.636132 0.541765" mass="0.6" diaginertia="0.000443035 0.000421612 0.000259353" />
+                          <joint name="right_elbow_joint" range="-1.0472 2.0944" axis="0 1 0" damping="2" />
+                          <body name="right_wrist_roll_link" pos="0.1 -0.00188791 -0.01" gravcomp="1">
+                            <inertial pos="0.0171394 -0.000537591 4.8864e-07" quat="0.411667 0.575338 -0.411094 0.574906" mass="0.085445" diaginertia="5.48211e-05 4.96646e-05 3.57798e-05" />
+                            <joint name="right_wrist_roll_joint" range="-1.97222 1.97222" axis="1 0 0" damping="2" />
+                            <body name="right_wrist_pitch_link" pos="0.038 0 0" gravcomp="1">
+                              <inertial pos="0.0229999 0.00111685 -0.00111658" quat="0.643608 0.293035 0.661363 0.249997" mass="0.48405" diaginertia="0.000430353 0.000429873 0.000164648" />
+                              <joint name="right_wrist_pitch_joint" range="-1.61443 1.61443" axis="0 1 0" damping="2" />
+                              <body name="right_wrist_yaw_link" pos="0.046 0 0" gravcomp="1">
+                                <inertial pos="0.0220038 -0.000494851 0.000538611" quat="0.707713 -0.135119 -0.121337 0.682761" mass="0.0845765" diaginertia="5.97564e-05 5.09807e-05 3.75684e-05" />
+                                <joint name="right_wrist_yaw_joint" range="-1.61443 1.61443" damping="2" />
+                                <body name="right_hand_palm_link" pos="0.0415 -0.003 0" gravcomp="1">
+                                  <inertial pos="0.0621463 0.000508697 -0.000581711" quat="0.519466 0.51008 0.479375 0.490075" mass="0.372839" diaginertia="0.000540479 0.000396282 0.000274343" />
+                                  <body name="right_hand_thumb_0_link" pos="0.0255 0 0" gravcomp="1">
+                                    <inertial pos="-0.000884246 0.00863407 0.000944293" quat="0.643965 0.462991 -0.398986 0.460173" mass="0.0862366" diaginertia="1.6546e-05 1.60058e-05 1.43741e-05" />
+                                    <joint name="right_hand_thumb_0_joint" range="-1.0472 1.0472" axis="0 1 0" damping="2" />
+                                    <body name="right_hand_thumb_1_link" pos="-0.0025 0.0193 0" gravcomp="1">
+                                      <inertial pos="-0.000827888 0.0354744 -0.0003809" quat="0.705471 0.685598 -0.0956069 0.15207" mass="0.0588507" diaginertia="1.28514e-05 1.22902e-05 5.9666e-06" />
+                                      <joint name="right_hand_thumb_1_joint" range="-1.0472 0.724312" damping="2" />
+                                      <body name="right_hand_thumb_2_link" pos="0 0.0458 0" gravcomp="1">
+                                        <inertial pos="-0.00171735 0.0262819 0.000107789" quat="0.710977 0.703174 0.00766553 0.000175642" mass="0.0203063" diaginertia="4.61314e-06 3.86645e-06 1.53495e-06" />
+                                        <joint name="right_hand_thumb_2_joint" range="-1.74533 0" damping="2" />
+                                      </body>
+                                    </body>
+                                  </body>
+                                  <body name="right_hand_middle_0_link" pos="0.0777 -0.0016 -0.0285" gravcomp="1">
+                                    <inertial pos="0.0354744 -0.000827888 0.0003809" quat="0.606373 0.417187 0.552395 0.391313" mass="0.0588507" diaginertia="1.28514e-05 1.22902e-05 5.9666e-06" />
+                                    <joint name="right_hand_middle_0_joint" range="0 1.5708" damping="2" />
+                                    <body name="right_hand_middle_1_link" pos="0.0458 0 0" gravcomp="1">
+                                      <inertial pos="0.0262819 -0.00171735 -0.000107789" quat="0.502861 0.502639 0.491799 0.502612" mass="0.0203063" diaginertia="4.61314e-06 3.86645e-06 1.53495e-06" />
+                                      <joint name="right_hand_middle_1_joint" range="0 1.74533" damping="2" />
+                                    </body>
+                                  </body>
+                                  <body name="right_hand_index_0_link" pos="0.0777 -0.0016 0.0285" gravcomp="1">
+                                    <inertial pos="0.0354744 -0.000827888 0.0003809" quat="0.606373 0.417187 0.552395 0.391313" mass="0.0588507" diaginertia="1.28514e-05 1.22902e-05 5.9666e-06" />
+                                    <joint name="right_hand_index_0_joint" range="0 1.5708" damping="2" />
+                                    <body name="right_hand_index_1_link" pos="0.0458 0 0" gravcomp="1">
+                                      <inertial pos="0.0262819 -0.00171735 -0.000107789" quat="0.502861 0.502639 0.491799 0.502612" mass="0.0203063" diaginertia="4.61314e-06 3.86645e-06 1.53495e-06" />
+                                      <joint name="right_hand_index_1_joint" range="0 1.74533" damping="2" />
+                                    </body>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <geom name="table" type="box" pos="0.45 0.14 0.615" size="0.42 0.43 0.035" rgba=".6 .5 .4 1" />
+    <body name="beaker" pos=".38 .18 .65">
+      <freejoint name="beaker_free" />
+      <geom name="beaker_bottom" type="cylinder" pos="0 0 0.003" size="0.035 .003" mass="0.024" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_0" type="box" pos="0.035 0.0 0.03" quat="1.0 0.0 0.0 0.0" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_1" type="box" pos="0.03233578363789504 0.013393920132778143 0.03" quat="0.9807852804032304 0.0 0.0 0.19509032201612825" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_2" type="box" pos="0.024748737341529166 0.024748737341529166 0.03" quat="0.9238795325112867 0.0 0.0 0.3826834323650898" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_3" type="box" pos="0.013393920132778146 0.03233578363789504 0.03" quat="0.8314696123025452 0.0 0.0 0.5555702330196022" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_4" type="box" pos="2.1431318985078684e-18 0.035 0.03" quat="0.7071067811865476 0.0 0.0 0.7071067811865476" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_5" type="box" pos="-0.013393920132778141 0.03233578363789504 0.03" quat="0.5555702330196023 0.0 0.0 0.8314696123025452" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_6" type="box" pos="-0.024748737341529162 0.024748737341529166 0.03" quat="0.38268343236508984 0.0 0.0 0.9238795325112867" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_7" type="box" pos="-0.03233578363789504 0.013393920132778148 0.03" quat="0.19509032201612833 0.0 0.0 0.9807852804032304" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_8" type="box" pos="-0.035 4.286263797015737e-18 0.03" quat="6.123233995736766e-17 0.0 0.0 1.0" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_9" type="box" pos="-0.03233578363789504 -0.01339392013277814 0.03" quat="-0.1950903220161282 0.0 0.0 0.9807852804032304" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_10" type="box" pos="-0.024748737341529173 -0.024748737341529162 0.03" quat="-0.3826834323650897 0.0 0.0 0.9238795325112867" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_11" type="box" pos="-0.013393920132778164 -0.03233578363789503 0.03" quat="-0.555570233019602 0.0 0.0 0.8314696123025453" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_12" type="box" pos="-6.429395695523605e-18 -0.035 0.03" quat="-0.7071067811865475 0.0 0.0 0.7071067811865476" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_13" type="box" pos="0.013393920132778151 -0.032335783637895035 0.03" quat="-0.8314696123025453 0.0 0.0 0.5555702330196022" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_14" type="box" pos="0.02474873734152916 -0.024748737341529173 0.03" quat="-0.9238795325112867 0.0 0.0 0.3826834323650899" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="beaker_wall_15" type="box" pos="0.03233578363789503 -0.013393920132778165 0.03" quat="-0.9807852804032304 0.0 0.0 0.1950903220161286" size=".002 0.007215845626214057 0.03" mass="0.0034999999999999996" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+    </body>
+    <body name="flask" pos=".49 .13 .65">
+      <geom name="flask_bottom" type="cylinder" pos="0 0 0.003" size="0.06 .003" mass="0.045" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_0" type="box" pos="0.040999999999999995 0.0 0.06" quat="0.9882667214246221 0.0 -0.15273796949229168 0.0" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_1" type="box" pos="0.03787906083296275 0.01569002072696868 0.06" quat="0.9692774534856292 0.029797699652340755 -0.14980315223671736 0.19280127292055285" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_2" type="box" pos="0.028991378028648446 0.028991378028648446 0.06" quat="0.9130393965862419 0.05845029041778455 -0.14111148385126163 0.3781933010469684" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_3" type="box" pos="0.015690020726968682 0.03787906083296275 0.06" quat="0.8217137477144381 0.08485666930177338 -0.12699698027763376 0.5490515727073956" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_4" type="box" pos="2.510525938252074e-18 0.040999999999999995 0.06" quat="0.6988101003403471 0.10800205397266348 -0.10800205397266348 0.6988101003403471" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_5" type="box" pos="-0.015690020726968675 0.03787906083296275 0.06" quat="0.5490515727073957 0.12699698027763376 -0.0848566693017734 0.8217137477144381" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_6" type="box" pos="-0.028991378028648443 0.028991378028648446 0.06" quat="0.37819330104696847 0.14111148385126163 -0.05845029041778456 0.9130393965862419" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_7" type="box" pos="-0.03787906083296275 0.015690020726968682 0.06" quat="0.19280127292055294 0.14980315223671736 -0.02979769965234077 0.9692774534856292" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_8" type="box" pos="-0.040999999999999995 5.021051876504148e-18 0.06" quat="6.051388385482562e-17 0.15273796949229168 -9.352503272350054e-18 0.9882667214246221" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_9" type="box" pos="-0.03787906083296275 -0.015690020726968675 0.06" quat="-0.1928012729205528 0.14980315223671736 0.029797699652340748 0.9692774534856292" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_10" type="box" pos="-0.02899137802864845 -0.028991378028648443 0.06" quat="-0.37819330104696836 0.14111148385126163 0.05845029041778454 0.9130393965862419" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_11" type="box" pos="-0.015690020726968703 -0.03787906083296274 0.06" quat="-0.5490515727073954 0.12699698027763376 0.08485666930177334 0.8217137477144382" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_12" type="box" pos="-7.531577814756221e-18 -0.040999999999999995 0.06" quat="-0.698810100340347 0.10800205397266348 0.10800205397266345 0.6988101003403471" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_13" type="box" pos="0.01569002072696869 -0.037879060832962747 0.06" quat="-0.8217137477144382 0.08485666930177338 0.12699698027763376 0.5490515727073956" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_14" type="box" pos="0.028991378028648436 -0.02899137802864845 0.06" quat="-0.9130393965862419 0.058450290417784566 0.14111148385126163 0.3781933010469685" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+      <geom name="flask_wall_15" type="box" pos="0.03787906083296274 -0.015690020726968703 0.06" quat="-0.9692774534856292 0.02979769965234081 0.14980315223671736 0.19280127292055318" size=".002 0.01237002107350981 0.06" mass="0.0065625" rgba=".4 .7 .9 .45" friction="1 .01 .001" />
+    </body>
+    <body name="ball" pos=".38 .18 .67">
+      <freejoint name="ball_free" />
+      <geom name="ball_geom" type="sphere" size=".009" mass=".003" rgba=".9 .2 .1 1" friction=".6 .01 .001" />
+    </body>
+  </worldbody>
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast" />
+  <actuator>
+    <position name="act_Left_Wheel_Joint" joint="Left_Wheel_Joint" kp="300" kv="25" />
+    <position name="act_Right_Wheel_Joint" joint="Right_Wheel_Joint" kp="300" kv="25" />
+    <position name="act_LZ_mt_Joint" joint="LZ_mt_Joint" kp="300" kv="25" />
+    <position name="act_LZ_it_Joint" joint="LZ_it_Joint" kp="300" kv="25" />
+    <position name="act_Yaw_Joint" joint="Yaw_Joint" kp="300" kv="25" />
+    <position name="act_torso_Joint" joint="torso_Joint" kp="300" kv="25" />
+    <position name="act_left_shoulder_pitch_joint" joint="left_shoulder_pitch_joint" kp="300" kv="25" />
+    <position name="act_left_shoulder_roll_joint" joint="left_shoulder_roll_joint" kp="300" kv="25" />
+    <position name="act_left_shoulder_yaw_joint" joint="left_shoulder_yaw_joint" kp="300" kv="25" />
+    <position name="act_left_elbow_joint" joint="left_elbow_joint" kp="300" kv="25" />
+    <position name="act_left_wrist_roll_joint" joint="left_wrist_roll_joint" kp="300" kv="25" />
+    <position name="act_left_wrist_pitch_joint" joint="left_wrist_pitch_joint" kp="300" kv="25" />
+    <position name="act_left_wrist_yaw_joint" joint="left_wrist_yaw_joint" kp="300" kv="25" />
+    <position name="act_left_hand_thumb_0_joint" joint="left_hand_thumb_0_joint" kp="300" kv="25" />
+    <position name="act_left_hand_thumb_1_joint" joint="left_hand_thumb_1_joint" kp="300" kv="25" />
+    <position name="act_left_hand_thumb_2_joint" joint="left_hand_thumb_2_joint" kp="300" kv="25" />
+    <position name="act_left_hand_middle_0_joint" joint="left_hand_middle_0_joint" kp="300" kv="25" />
+    <position name="act_left_hand_middle_1_joint" joint="left_hand_middle_1_joint" kp="300" kv="25" />
+    <position name="act_left_hand_index_0_joint" joint="left_hand_index_0_joint" kp="300" kv="25" />
+    <position name="act_left_hand_index_1_joint" joint="left_hand_index_1_joint" kp="300" kv="25" />
+    <position name="act_left_finger_slide" joint="left_finger_slide" kp="300" kv="25" />
+    <position name="act_right_finger_slide" joint="right_finger_slide" kp="300" kv="25" />
+    <position name="act_right_shoulder_pitch_joint" joint="right_shoulder_pitch_joint" kp="300" kv="25" />
+    <position name="act_right_shoulder_roll_joint" joint="right_shoulder_roll_joint" kp="300" kv="25" />
+    <position name="act_right_shoulder_yaw_joint" joint="right_shoulder_yaw_joint" kp="300" kv="25" />
+    <position name="act_right_elbow_joint" joint="right_elbow_joint" kp="300" kv="25" />
+    <position name="act_right_wrist_roll_joint" joint="right_wrist_roll_joint" kp="300" kv="25" />
+    <position name="act_right_wrist_pitch_joint" joint="right_wrist_pitch_joint" kp="300" kv="25" />
+    <position name="act_right_wrist_yaw_joint" joint="right_wrist_yaw_joint" kp="300" kv="25" />
+    <position name="act_right_hand_thumb_0_joint" joint="right_hand_thumb_0_joint" kp="300" kv="25" />
+    <position name="act_right_hand_thumb_1_joint" joint="right_hand_thumb_1_joint" kp="300" kv="25" />
+    <position name="act_right_hand_thumb_2_joint" joint="right_hand_thumb_2_joint" kp="300" kv="25" />
+    <position name="act_right_hand_middle_0_joint" joint="right_hand_middle_0_joint" kp="300" kv="25" />
+    <position name="act_right_hand_middle_1_joint" joint="right_hand_middle_1_joint" kp="300" kv="25" />
+    <position name="act_right_hand_index_0_joint" joint="right_hand_index_0_joint" kp="300" kv="25" />
+    <position name="act_right_hand_index_1_joint" joint="right_hand_index_1_joint" kp="300" kv="25" />
+  </actuator>
+</mujoco>

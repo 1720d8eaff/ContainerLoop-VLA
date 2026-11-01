@@ -1,0 +1,4 @@
+# Preserve exact bytes used in the published experiment hashes across checkouts.
+benchmark.py -text
+benchmark_holdout.py -text
+g1d_pour_prototype.xml -text
