@@ -1,7 +1,4 @@
-"""CPU MuJoCo contact benchmark for a cylinder transfer using a Cartesian gripper.
 
-This is a new simulated test fixture, not the G1-D or a historical experiment.
-"""
 import argparse
 import csv
 import hashlib
