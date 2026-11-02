@@ -1,6 +1,7 @@
 {
-  "notice": "本文件只统计真机评测段落，数值与 real_robot_episodes.jsonl 逐条记录一致；仿真部分见 experiments/g1d_pouring_adaptive/main_run/summary.json。",
+  "notice": "本文件只统计真机评测段落，数值由 real_robot_episodes.jsonl 逐条重算；仿真部分见 experiments/g1d_pouring_adaptive/main_run/summary.json。",
   "source": "artifacts/contact/real_robot_episodes.jsonl",
+  "data_source": "real_robot",
   "protocol": "paired_initial_conditions_matched_to_simulation_conditions",
   "success_definition": "grasp_and_place_within_0.045m_xy_and_final_z_in_0.025_0.07m",
   "results": {
@@ -8,15 +9,15 @@
       "episodes": 30,
       "successes": 21,
       "success_rate": 0.7,
-      "mean_grasp_drift_m_all_attempts": 0.023180899999999997,
-      "mean_placement_xy_error_m_all_attempts": 0.0321765
+      "mean_grasp_drift_m_all_attempts": 0.0231809,
+      "mean_placement_xy_error_m_all_attempts": 0.032176500000000004
     },
     "rule_control": {
       "episodes": 30,
       "successes": 17,
       "success_rate": 0.5666666666666667,
       "mean_grasp_drift_m_all_attempts": 0.0242269,
-      "mean_placement_xy_error_m_all_attempts": 0.031534599999999996
+      "mean_placement_xy_error_m_all_attempts": 0.0315346
     }
   },
   "paired_vla_rule": {
