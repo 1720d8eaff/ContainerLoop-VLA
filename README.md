@@ -6,7 +6,7 @@
 ## 真实机器人材料
 
 - [真实机器人示教样例](real_robot_samples/README.md)：3 段公开抽样，包含 color_3 图像及左右臂、末端状态与动作；[样例压缩包](real_robot_samples/container_real_samples.zip)和[数据清单](real_robot_samples/manifest.json)均保存在 main 主干。
-- [真机评测逐回合记录](artifacts/contact/real_robot_episodes.jsonl)：60 条，30 个与仿真对齐的初始条件 × 2 种方法（`rr01`–`rr30`），2026-09-14 采集于 `g1d_sn_014`；`vla_closed_loop` 为 21/30（70.0%），`rule_control` 为 17/30（56.7%）。[汇总统计](artifacts/contact/real_robot_evaluation.json) 给出成功率、配对结果与成功判定。
+- [真机评测逐回合记录](artifacts/contact/real_robot_episodes.jsonl)：60 条，30 个与仿真对齐的初始条件 × 2 种方法（`rr01`–`rr30`），2026-09-14 采集于 `g1d_sn_014`；`vla_closed_loop` 为 21/30（70.0%），`rule_control` 为 17/30（56.7%）。[汇总统计](artifacts/contact/real_robot_evaluation.json) 给出成功率、配对结果与成功判定。wall_time_s 为单回合墙钟时长（不含装夹与复位）；记录不含仿真步计数，仿真与真机以 source 字段区分。
 
 
 ## GR00T N1.7 双夹爪微调适配
