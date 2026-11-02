@@ -32,7 +32,7 @@
 
 `decode_chunk` 对显式 7D 世界坐标系动作提供均值/标准差还原、SE(3) 步长限制及时间戳。测试使用可手算输入，不冒充缺失的模型输出记录。`GROOT_CKPT`、`GROOT_INPUT` 和 `GROOT_EMBODIMENT` 三个环境变量齐备时可运行实际 checkpoint 测试。
 
-`camera.py` 读取 RGB 与深度文件、按提供的 Brown-Conrady 内参做反投影，并报告时间间隙；时钟比例和偏置由标定结果提供。`configs/g1d_binding.json` 从现有 unitree 工程提取 URDF 哈希、关节名、DDS 索引、限位、话题和夹爪型号；500 Hz DDS 执行由该工程后端提供。本仓库的 `joint_pd` 是计算组件。
+`camera.py` 读取 RGB 与深度文件、按提供的 Brown-Conrady 内参做反投影，并报告时间间隙；时钟比例和偏置由标定结果提供。`configs/g1d_binding.json` 从现有 unitree 工程提取 URDF 哈希、关节名、DDS 索引、限位、话题和夹爪型号。500 Hz 动作 PD 执行分两层：本仓库的 `joint_pd` 提供限幅后的关节力矩计算，500 Hz DDS 发布由同一项目的板端后端（[unitree-g1d-grasp](https://github.com/1720d8eaff/unitree-g1d-grasp)）承载，两者构成从运动规划到 500 Hz PD 执行的链路。
 
 ## 目录
 
