@@ -5,18 +5,25 @@ import numpy as np
 from .geometry import check_transform
 
 
-def decode_chunk(chunk,mean,std,eef,timestamp,control_dt,mode,translation_limit,rotation_limit):
+def decode_chunk(chunk,mean,std,eef,timestamp,control_dt,mode,translation_limit,rotation_limit,clip_gripper=None):
     """Decode standardized [xyz, rotation-vector, gripper] rows.
 
     Relative increments use world axes and accumulate over the chunk. Absolute
     rows are world poses. This explicit 7D convention is not universal GR00T
     output; NVIDIA get_action already returns physical units, so pass mean=0,
     std=1 only when its action modality uses this exact representation.
+
+    The gripper channel is passed through unchanged by default. Pass
+    clip_gripper=(lo, hi) only when the caller knows the command is normalized;
+    G1-D teaching keeps device-scale values, so clipping them to [0, 1] would
+    silently truncate the command (see examples/g1d_dual_gripper/README.md).
     """
     from scipy.spatial.transform import Rotation
     from .geometry import project_delta,pose_error
     chunk=np.asarray(chunk,float);mean=np.asarray(mean,float);std=np.asarray(std,float)
     if chunk.ndim!=2 or chunk.shape[1]!=7 or len(chunk)==0 or mean.shape!=(7,) or std.shape!=(7,) or np.any(std<=0) or not all(np.isfinite(x).all() for x in (chunk,mean,std)) or not np.isfinite([timestamp,control_dt]).all() or control_dt<=0 or mode not in ('relative','absolute'):raise ValueError('invalid action convention/statistics')
+    if clip_gripper is not None:
+        if len(clip_gripper)!=2 or not np.isfinite(clip_gripper).all() or clip_gripper[0]>=clip_gripper[1]:raise ValueError('invalid gripper clip range')
     current=check_transform(eef).copy();result=[]
     for i,row in enumerate(chunk*std+mean):
         if mode=='relative':delta=row[:6]
@@ -24,7 +31,8 @@ def decode_chunk(chunk,mean,std,eef,timestamp,control_dt,mode,translation_limit,
             target=np.eye(4);target[:3,3]=row[:3];target[:3,:3]=Rotation.from_rotvec(row[3:6]).as_matrix();delta=pose_error(current,target)
         delta=project_delta(delta,translation_limit,rotation_limit)
         current[:3,3]+=delta[:3];current[:3,:3]=Rotation.from_rotvec(delta[3:]).as_matrix()@current[:3,:3]
-        result.append(SE3Action(current.copy(),float(np.clip(row[6],0,1)),float(timestamp+i*control_dt)))
+        gripper=float(row[6]) if clip_gripper is None else float(np.clip(row[6],*clip_gripper))
+        result.append(SE3Action(current.copy(),gripper,float(timestamp+i*control_dt)))
     return result
 
 

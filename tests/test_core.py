@@ -1,4 +1,5 @@
 import csv
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -8,7 +9,7 @@ from containerloop.control import Stage, StageGate, damped_ik_step, joint_pd
 from containerloop.data import nearest_indices, rigid_calibration
 from containerloop.episodes import align_episode, write_jsonl
 from containerloop.optim import cem
-from containerloop.evaluation import read_results, summarize, paired
+from containerloop.evaluation import read_results, summarize, paired, read_episode_jsonl, build_report
 
 
 class GeometryTests(unittest.TestCase):
@@ -92,3 +93,28 @@ class EvaluationTests(unittest.TestCase):
             result = paired(rows, 'a', 'b')
             self.assertEqual(result['matched_conditions'], 1)
             self.assertAlmostEqual(result['mean_drift_difference_b_minus_a_m'], -.02)
+
+    def test_episode_jsonl_rebuilds_the_summary(self):
+        def record(cid, method, success, height, drift, z):
+            return {'episode_id': f'{cid}_{method}', 'method': method, 'condition': {'id': cid},
+                    'success': success, 'max_height_m': height, 'drift_m': drift,
+                    'final_position_m': [0.0, 0.0, z], 'grasp_drift_m': drift / 2}
+        rows = [record('c1', 'vla_closed_loop', True, .16, .02, .05),
+                record('c1', 'rule_control', False, .10, .02, .05),
+                record('c2', 'vla_closed_loop', False, .12, .02, .05),
+                record('c2', 'rule_control', True, .18, .03, .04)]
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / 'real_robot_episodes.jsonl'
+            path.write_text('\n'.join(json.dumps(r) for r in rows) + '\n', encoding='utf-8')
+            parsed = read_episode_jsonl(path)
+            self.assertEqual(len(parsed), 4)
+            report = build_report(path)
+            self.assertEqual(report['results']['vla_closed_loop']['successes'], 1)
+            self.assertEqual(report['results']['rule_control']['successes'], 1)
+            self.assertEqual(report['paired']['matched_conditions'], 2)
+            self.assertEqual(report['paired']['both_failure'], 0)
+            with self.assertRaises(ValueError):
+                rows[0]['success'] = False
+                path.write_text('\n'.join(json.dumps(r) for r in rows) + '\n', encoding='utf-8')
+                read_episode_jsonl(path)
+

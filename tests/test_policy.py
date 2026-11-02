@@ -27,10 +27,23 @@ def test_decode_matches_analytical_chunk():
         0.1,
     )
     assert len(actions) == data["action"].shape[0]
-    assert all(0.0 <= item.gripper <= 1.0 for item in actions)
+    # Gripper channel passes through unchanged by default (G1-D teaching keeps
+    # device-scale values); clipping is opt-in via clip_gripper.
+    np.testing.assert_allclose([item.gripper for item in actions], data["action"][:, 6])
     assert all(np.isfinite(item.pose).all() for item in actions)
     np.testing.assert_allclose(actions[0].pose[:3, 3], data["first_position"], atol=1e-6)
     np.testing.assert_allclose(actions[0].pose[:3, :3], data["first_rotation"], atol=1e-6)
+
+
+def test_decode_gripper_clip_is_opt_in():
+    data = analytical_chunk()
+    args = (data["action"], data["mean"], data["std"], data["eef"], 1.0, 0.033, "relative", 0.02, 0.1)
+    raw = decode_chunk(*args)
+    clipped = decode_chunk(*args, clip_gripper=(0.0, 1.0))
+    np.testing.assert_allclose([item.gripper for item in raw], [0.5, 2.0])
+    np.testing.assert_allclose([item.gripper for item in clipped], [0.5, 1.0])
+    with pytest.raises(ValueError):
+        decode_chunk(*args, clip_gripper=(1.0, 0.0))
 
 def test_decode_rejects_bad_statistics():
     data = analytical_chunk()

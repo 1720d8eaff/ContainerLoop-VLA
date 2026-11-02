@@ -1,5 +1,5 @@
 {
-  "notice": "本文件只统计真机评测段落，数值由 real_robot_episodes.jsonl 逐条重算；仿真部分见 experiments/g1d_pouring_adaptive/main_run/summary.json。",
+  "notice": "本文件由 containerloop.evaluation 从逐条记录重算，不手工编辑；仿真部分见 experiments/g1d_pouring_adaptive/main_run/summary.json。",
   "source": "artifacts/contact/real_robot_episodes.jsonl",
   "data_source": "real_robot",
   "protocol": "paired_initial_conditions_matched_to_simulation_conditions",
@@ -20,10 +20,15 @@
       "mean_placement_xy_error_m_all_attempts": 0.0315346
     }
   },
-  "paired_vla_rule": {
+  "paired": {
+    "methods": [
+      "vla_closed_loop",
+      "rule_control"
+    ],
+    "matched_conditions": 30,
     "both_success": 15,
     "both_failure": 7,
-    "vla_only_success": 6,
-    "rule_only_success": 2
+    "a_only_success": 6,
+    "b_only_success": 2
   }
 }
